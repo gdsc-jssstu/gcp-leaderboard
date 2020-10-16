@@ -2,6 +2,7 @@
 import requests
 import urllib.request
 import time
+from pytz import timezone
 from bs4 import BeautifulSoup
 import fileinput
 import json
@@ -78,8 +79,8 @@ def data_gathering(link):
 def data_saving(biglist):
     # print("in data saving")
     res = sorted(biglist, key=lambda x: x["qcomplete_no"], reverse=True)
-    now = datetime.now()
-    dt_string = now.strftime("%d/%m/%Y %H:%M")
+    now = datetime.now(timezone("Asia/Kolkata"))
+    dt_string = now.strftime("%d/%m/%Y %H:%M") + " IST"
     with open("gcpLeaderboard/static/lastUpdated.txt", "w") as f:
         print(dt_string, file=f)
     with open("gcpLeaderboard/static/details.json", "w") as f:
