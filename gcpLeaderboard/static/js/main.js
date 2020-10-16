@@ -1,13 +1,11 @@
-console.clear();
-
 function getData() {
   var xh = new XMLHttpRequest();
-  xh.open("GET", "static/js/my.json", true);
+  xh.open("GET", "static/details.json", true);
   xh.setRequestHeader("Content-Type", "application/json");
   xh.send();
   xh.onload = function () {
     if (this.status == 200) {
-      // // console.log(this.responseText)
+      // console.log(this.responseText)
       var data = JSON.parse(this.responseText);
       console.log(data);
 
