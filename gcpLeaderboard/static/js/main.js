@@ -7,7 +7,7 @@ function getData() {
     if (this.status == 200) {
       // console.log(this.responseText)
       var data = JSON.parse(this.responseText);
-      console.log(data);
+      // console.log(data);
 
       var i = 1;
       data.forEach((member) => {
