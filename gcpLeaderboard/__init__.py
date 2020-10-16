@@ -2,7 +2,7 @@ import atexit
 
 from flask import Flask, render_template, jsonify
 
-from gcpLeaderboard.scripts import fetchDetails
+from gcpLeaderboard import fetchDetails
 
 from apscheduler.schedulers.background import BackgroundScheduler
 from apscheduler.executors.pool import ThreadPoolExecutor, ProcessPoolExecutor
