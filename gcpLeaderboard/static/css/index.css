@@ -206,8 +206,15 @@ u-text--center {
   }
 }
 
-.u-text--left, .u-text--left, .u-text--left{
+.u-text--center, .u-text--right{
   font-weight: bold;
+  text-transform: uppercase;
+  text-align: center;
+}
+
+.u-text--left{
+  font-weight: bold;
+  text-transform: uppercase;
 }
 
 .c-logo {
@@ -320,4 +327,37 @@ u-text--center {
   height: 3.2rem;
 
   border-radius: 0.4rem;
+}
+
+.c-kudos{
+  margin-top: 0.8rem;
+}
+
+.u-bg--yellow{
+  background-color: #FFD700;
+  color: #000000;
+  border-radius:50%;
+}
+
+.u-text--yellow{
+  color: #FFD700;
+}
+
+.u-bg--teal{
+  background-color: #A9A9A9;
+  color: #000000;
+  border-radius:50%;
+}
+
+.u-text--teal{
+  color: #A9A9A9;
+}
+
+.u-bg--orange{
+  background-color: #cd7f32;
+  border-radius:50%;
+}
+
+.u-text--orange{
+  color: #cd7f32;
 }
