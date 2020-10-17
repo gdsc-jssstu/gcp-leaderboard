@@ -14,7 +14,7 @@ def fetchHelper():
 
 
 sched = BackgroundScheduler(daemon=True)
-sched.add_job(fetchHelper, "interval", minutes=30)
+sched.add_job(fetchHelper, "interval", minutes=60)
 sched.start()
 
 # Shut down the scheduler when exiting the app
