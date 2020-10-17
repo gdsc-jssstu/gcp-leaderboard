@@ -1,4 +1,5 @@
 import atexit
+import importlib
 
 from flask import Flask, render_template, jsonify
 
@@ -7,8 +8,13 @@ from gcpLeaderboard import fetchDetails
 from apscheduler.schedulers.background import BackgroundScheduler
 from apscheduler.executors.pool import ThreadPoolExecutor, ProcessPoolExecutor
 
+
+def fetchHelper():
+    importlib.reload(fetchDetails)
+
+
 sched = BackgroundScheduler(daemon=True)
-sched.add_job(fetchDetails.main, "interval", minutes=30)
+sched.add_job(fetchHelper, "interval", minutes=30)
 sched.start()
 
 # Shut down the scheduler when exiting the app
