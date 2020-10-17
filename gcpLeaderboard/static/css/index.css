@@ -42,6 +42,7 @@ body {
   border: 10px double rgba(255, 255, 255, 0.25);
   border-width: 0px 0px 4px 0px;
   padding-bottom: 10px;
+  padding-top: 10px;
 }
 .top-heading span {
   font: 700 4em/1 "Oswald", sans-serif;
@@ -97,7 +98,7 @@ u-text--center {
 }
 
 .l-wrapper {
-  width: 100%;
+  width: 90%;
   max-width: 960px;
   margin: auto;
 }
@@ -205,6 +206,10 @@ u-text--center {
   }
 }
 
+.u-text--left, .u-text--left, .u-text--left{
+  font-weight: bold;
+}
+
 .c-logo {
   display: inline-block;
   width: 100%;
@@ -290,10 +295,12 @@ u-text--center {
   color: var(--dark);
 }
 
-@media screen and (max-width: 700px) {
+@media screen and (max-width: 800px) {
+  .c-media__content {
+    padding-left: 0rem;
+  }
   .c-avatar {
-    width: 3.2rem;
-    height: 3.2rem;
+    display:none;
   }
 }
 
