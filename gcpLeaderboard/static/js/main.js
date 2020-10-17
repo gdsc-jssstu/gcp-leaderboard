@@ -46,6 +46,13 @@ function getData() {
           newRow.querySelector(".c-place").classList.add("u-bg--orange");
           newRow.querySelector(".c-kudos").classList.add("u-text--orange");
         }
+
+        if (i%2 == 0){
+          newRow.classList.add("bg-even");
+        }else{
+          newRow.classList.add("bg-odd");
+        }
+
         i++;
         list.appendChild(newRow);
       });

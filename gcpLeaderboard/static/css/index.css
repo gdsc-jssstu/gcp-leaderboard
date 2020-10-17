@@ -169,13 +169,11 @@ u-text--center {
   box-shadow: 0px 0px 0px 1px rgba(255, 255, 255, 0.12);
 }
 
-.c-card__body,
 .c-card__header {
   padding: 2.4rem;
 }
 
 @media screen and (max-width: 700px) {
-  .c-card__body,
   .c-card__header {
     padding: 1.2rem;
   }
@@ -234,7 +232,13 @@ u-text--center {
 }
 
 .c-list__item {
-  padding: 1.6rem 0;
+  padding: 2.4rem;
+}
+
+@media screen and (max-width: 700px) {
+  .c-list__item {
+    padding: 1.8rem;
+  }
 }
 
 .c-list__item .c-flag {
@@ -360,4 +364,12 @@ u-text--center {
 
 .u-text--orange{
   color: #cd7f32;
+}
+
+.bg-odd{
+  background-color: var(--darker);
+}
+
+.bg-even{
+  background-color: var(--darkest);
 }
