@@ -275,6 +275,10 @@ u-text--center {
   padding-left: 1.6rem;
 }
 
+.c-media__content ol{
+  padding: 1.6rem;
+}
+
 @media screen and (max-width: 700px) {
   .c-media__content {
     padding-left: 0.8rem;

@@ -12,7 +12,13 @@ function getData() {
       var i = 1;
       data.forEach((member) => {
         let newRow = document.createElement("li");
+
+        member.track1.reverse();
+        member.track2.reverse();
+
         newRow.classList = "c-list__item";
+
+        if(member.track1.length==0){
         newRow.innerHTML = `
                     <div class="c-list__grid">
                         <div class="c-flag c-place u-bg--transparent">${i}</div>
@@ -20,10 +26,8 @@ function getData() {
                             <img class="c-avatar c-media__img" src="${member.dp}" />
                             <div class="c-media__content">
                                 <div class="c-media__title">${member.name}</div>
-                                <a class="c-media__link ">Track 1 - ${member.track1}</a>
                                 <br>
-                                <br>
-                                <a class="c-media__link ">Track 2 - ${member.track2}</a>
+                                <a class="c-media__link "><b>Track 2:</b><ol><li> ${member.track2.join('</li><li>')}</li></ol></a>
                             </div>
                         </div>
                         <div class="u-text--right c-kudos">
@@ -33,6 +37,49 @@ function getData() {
                         </div>
                     </div>
                 `;
+          }else if(member.track2.length==0){
+            newRow.innerHTML = `
+                        <div class="c-list__grid">
+                            <div class="c-flag c-place u-bg--transparent">${i}</div>
+                            <div class="c-media">
+                                <img class="c-avatar c-media__img" src="${member.dp}" />
+                                <div class="c-media__content">
+                                    <div class="c-media__title">${member.name}</div>
+                                    <br>
+                                    <a class="c-media__link "><b>Track 1:</b><ol><li> ${member.track1.join('</li><li>')}</li></ol></a>
+                                </div>
+                            </div>
+                            <div class="u-text--right c-kudos">
+                                <div class="u-mt--8">
+                                    <strong>${member.qcomplete_no}</strong>
+                                </div>
+                            </div>
+                        </div>
+                    `;
+          }else{
+            newRow.innerHTML = `
+                        <div class="c-list__grid">
+                            <div class="c-flag c-place u-bg--transparent">${i}</div>
+                            <div class="c-media">
+                                <img class="c-avatar c-media__img" src="${member.dp}" />
+                                <div class="c-media__content">
+                                    <div class="c-media__title">${member.name}</div>
+                                    <br>
+                                    <a class="c-media__link "><b>Track 1:</b><ol><li> ${member.track1.join('</li><li>')}</li></ol></a>
+                                    <br><br>
+                                    <a class="c-media__link "><b>Track 2:</b><ol><li> ${member.track2.join('</li><li>')}</li></ol></a>
+                                </div>
+                            </div>
+                            <div class="u-text--right c-kudos">
+                                <div class="u-mt--8">
+                                    <strong>${member.qcomplete_no}</strong>
+                                </div>
+                            </div>
+                        </div>
+                    `;
+
+          }
+
         if (i === 1) {
           newRow.querySelector(".c-place").classList.add("u-text--dark");
           newRow.querySelector(".c-place").classList.add("u-bg--yellow");
