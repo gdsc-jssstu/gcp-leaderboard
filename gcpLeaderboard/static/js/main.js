@@ -24,13 +24,12 @@ function getData() {
 
         rank=rankarray.indexOf(member.qcomplete_no)+1;
 
-        console.log(rank);
-
         newRow.classList = "c-list__item";
 
         if(member.track1.length==0){
         newRow.innerHTML = `
                     <div class="c-list__grid">
+                        <div class="c-flag c-kudos">${i}</div>
                         <div class="c-flag c-place u-bg--transparent">${rank}</div>
                         <div class="c-media">
                             <img class="c-avatar c-media__img" src="${member.dp}" />
@@ -50,6 +49,7 @@ function getData() {
           }else if(member.track2.length==0){
             newRow.innerHTML = `
                         <div class="c-list__grid">
+                            <div class="c-flag c-kudos">${i}</div>
                             <div class="c-flag c-place u-bg--transparent">${rank}</div>
                             <div class="c-media">
                                 <img class="c-avatar c-media__img" src="${member.dp}" />
@@ -69,6 +69,7 @@ function getData() {
           }else{
             newRow.innerHTML = `
                         <div class="c-list__grid">
+                            <div class="c-flag c-kudos">${i}</div>
                             <div class="c-flag c-place u-bg--transparent">${rank}</div>
                             <div class="c-media">
                                 <img class="c-avatar c-media__img" src="${member.dp}" />
