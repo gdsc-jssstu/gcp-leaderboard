@@ -7,7 +7,13 @@ function getData() {
     if (this.status == 200) {
       // console.log(this.responseText)
       var data = JSON.parse(this.responseText);
-      // console.log(data);
+
+      var rankset = new Set();
+      data.forEach((member)=>
+        {rankset.add(member.qcomplete_no);}
+      );
+
+      const rankarray = [...rankset];
 
       var i = 1;
       data.forEach((member) => {
@@ -16,12 +22,16 @@ function getData() {
         member.track1.reverse();
         member.track2.reverse();
 
+        rank=rankarray.indexOf(member.qcomplete_no)+1;
+
+        console.log(rank);
+
         newRow.classList = "c-list__item";
 
         if(member.track1.length==0){
         newRow.innerHTML = `
                     <div class="c-list__grid">
-                        <div class="c-flag c-place u-bg--transparent">${i}</div>
+                        <div class="c-flag c-place u-bg--transparent">${rank}</div>
                         <div class="c-media">
                             <img class="c-avatar c-media__img" src="${member.dp}" />
                             <div class="c-media__content">
@@ -40,7 +50,7 @@ function getData() {
           }else if(member.track2.length==0){
             newRow.innerHTML = `
                         <div class="c-list__grid">
-                            <div class="c-flag c-place u-bg--transparent">${i}</div>
+                            <div class="c-flag c-place u-bg--transparent">${rank}</div>
                             <div class="c-media">
                                 <img class="c-avatar c-media__img" src="${member.dp}" />
                                 <div class="c-media__content">
@@ -59,7 +69,7 @@ function getData() {
           }else{
             newRow.innerHTML = `
                         <div class="c-list__grid">
-                            <div class="c-flag c-place u-bg--transparent">${i}</div>
+                            <div class="c-flag c-place u-bg--transparent">${rank}</div>
                             <div class="c-media">
                                 <img class="c-avatar c-media__img" src="${member.dp}" />
                                 <div class="c-media__content">
@@ -80,15 +90,15 @@ function getData() {
 
           }
 
-        if (i === 1) {
+        if (rank === 1) {
           newRow.querySelector(".c-place").classList.add("u-text--dark");
           newRow.querySelector(".c-place").classList.add("u-bg--yellow");
           newRow.querySelector(".c-kudos").classList.add("u-text--yellow");
-        } else if (i === 2) {
+        } else if (rank === 2) {
           newRow.querySelector(".c-place").classList.add("u-text--dark");
           newRow.querySelector(".c-place").classList.add("u-bg--teal");
           newRow.querySelector(".c-kudos").classList.add("u-text--teal");
-        } else if (i === 3) {
+        } else if (rank === 3) {
           newRow.querySelector(".c-place").classList.add("u-text--dark");
           newRow.querySelector(".c-place").classList.add("u-bg--orange");
           newRow.querySelector(".c-kudos").classList.add("u-text--orange");
