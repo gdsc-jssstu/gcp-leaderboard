@@ -59,17 +59,13 @@ def data_gathering(link):
     profile = soup.findAll("div", attrs={"class": "text--center"})[0]
     dp = profile.findAll("ql-avatar")[0]["src"]
     name = profile.h1.text
-    # print(name)
     tempdic["name"] = name.strip()
     tempdic["dp"] = dp
     quests = soup.findAll("div", attrs={"class": "profile-badge"})
-    # print(quests)
     for quest in quests:
         allquest = quest.findAll("span", attrs={"class": "ql-subhead-1"})[
             0
         ].text.strip()
-        # allquest = json.loads(quest.get("span"))["title"]
-        # print(allquest)
         if allquest in track1:
             track1completed.append(allquest)
         if allquest in track2:

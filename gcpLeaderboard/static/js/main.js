@@ -1,17 +1,11 @@
 function getData() {
   var xh = new XMLHttpRequest();
   xh.open("GET", "./static/details.json", true);
-  //console.log(xh)
-  // xh.setRequestHeader("Access-Control-Allow-Origin","*")
   xh.setRequestHeader("Content-Type", "application/json");
-  // xh.responseType = 'json';
   xh.send();
-  console.log(xh)
   xh.onload = function () {
     if (this.status == 200) {
-      // console.log(this.responseText)
       var data = JSON.parse(this.responseText);
-      // console.log(xh.responseText)
       var rankset = new Set();
       data.forEach((member)=>
         {rankset.add(member.qcomplete_no);}
