@@ -18,7 +18,7 @@ url = []
 url2 = []
 
 track1 = [
-    "Getting Started: Create and Manage Cloud Resources",
+    "Create and Manage Cloud Resources",
     "Perform Foundational Infrastructure Tasks in Google Cloud",
     "Set up and Configure a Cloud Environment in Google Cloud",
     "Deploy and Manage Cloud Environments with Google Cloud",
@@ -26,7 +26,7 @@ track1 = [
     "Deploy to Kubernetes in Google Cloud",
 ]
 track2 = [
-    "Getting Started: Create and Manage Cloud Resources",
+    "Create and Manage Cloud Resources",
     "Perform Foundational Data, ML, and AI Tasks in Google Cloud",
     "Insights from Data with BigQuery",
     "Engineer Data in Google Cloud",
@@ -56,14 +56,20 @@ def data_gathering(link):
     soup = BeautifulSoup(response.text, "html.parser")
     track1completed = []
     track2completed = []
-    profile = soup.findAll("div", attrs={"class": "public-profile__hero"})[0]
-    dp = profile.img["src"]
+    profile = soup.findAll("div", attrs={"class": "text--center"})[0]
+    dp = profile.findAll("ql-avatar")[0]["src"]
     name = profile.h1.text
+    # print(name)
     tempdic["name"] = name.strip()
     tempdic["dp"] = dp
-    quests = soup.findAll("ql-badge")
+    quests = soup.findAll("div", attrs={"class": "profile-badge"})
+    # print(quests)
     for quest in quests:
-        allquest = json.loads(quest.get("badge"))["title"]
+        allquest = quest.findAll("span", attrs={"class": "ql-subhead-1"})[
+            0
+        ].text.strip()
+        # allquest = json.loads(quest.get("span"))["title"]
+        # print(allquest)
         if allquest in track1:
             track1completed.append(allquest)
         if allquest in track2:
@@ -71,6 +77,7 @@ def data_gathering(link):
     tempdic["track1"] = track1completed
     tempdic["track2"] = track2completed
     tempdic["qcomplete_no"] = len(track1completed) + len(track2completed)
+    # print(tempdic)
 
     if tempdic["qcomplete_no"] != 0:
         biglist.append(tempdic)
