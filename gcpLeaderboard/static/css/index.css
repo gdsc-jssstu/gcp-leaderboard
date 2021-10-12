@@ -1,16 +1,16 @@
 :root {
   --black: #000000;
   --white: #ffffff;
-  --darkest: #101010;
-  --darker: #16171a;
-  --dark: #a3afbf;
+  --darkest: #151414;
+  --darker: #151414;
+  --dark: #151414;
   --medium: #dfe7ef;
   --light: #cad4e1;
   --lighter: #f5f8fc;
   --lightest: var(--white);
   --primary: #7b16ff;
   --primary-light: #ddd9ff;
-  --primary-trans: rgba(123, 22, 255, 0.4);
+  --primary-trans: #cad4e1;
   --yellow: #fdcb6e;
   --orange: #e17055;
   --teal: #00cec9;
@@ -20,8 +20,8 @@
 }
 
 body {
-  background: black;
-  color: white;
+  background: #FFA500;
+  color: #ffffff;
 }
 html::-webkit-scrollbar {
   display: none;
@@ -39,8 +39,6 @@ body {
 }
 
 .top-heading {
-  border: 10px double rgba(255, 255, 255, 0.25);
-  border-width: 0px 0px 4px 0px;
   padding-bottom: 10px;
   padding-top: 10px;
 }
@@ -50,18 +48,8 @@ body {
   display: block;
   text-align: center;
   margin: 0 auto;
+  color: #E3F2FD;
   text-shadow: 0 0 80px rgba(255, 255, 255, 0.5);
-  background: url(../img/animated_text_fill.png);
-  -webkit-background-clip: text;
-  background-clip: text;
-  clip: text;
-  -webkit-text-fill-color: transparent;
-  -webkit-animation: slide 80s linear infinite;
-  animation: slide 80s linear infinite;
-  -webkit-transform: translate3d(0, 0, 0);
-  transform: translate3d(0, 0, 0);
-  -webkit-backface-visibility: hidden;
-  backface-visibility: hidden;
 }
 @-webkit-keyframes slide {
   0% {
@@ -80,7 +68,7 @@ body {
   }
 }
 a {
-  color: var(--primary);
+  color: var(--lighter);
   text-decoration: none;
   -webkit-transition: all 120ms ease-out 0s;
   transition: all 120ms ease-out 0s;
@@ -90,7 +78,7 @@ a {
 
 a:hover {
   background: var(--primary-trans);
-  color: var(--primary-light);
+  color: #000000;
   box-shadow: 0px 0px 0px 0.4rem var(--primary-trans);
 }
 u-text--center {
@@ -288,6 +276,8 @@ u-text--center {
 }
 
 .c-media__title {
+  font-style: bold;
+  font-size: 2rem;
   margin-bottom: 0.4rem;
 }
 
@@ -344,32 +334,32 @@ u-text--center {
 }
 
 .u-bg--yellow {
-  background-color: #ffd700;
+  background-color: #4CAF50;
   color: #000000;
   border-radius: 50%;
 }
 
 .u-text--yellow {
-  color: #ffd700;
+  color: #4CAF50;
 }
 
 .u-bg--teal {
-  background-color: #a9a9a9;
+  background-color: #2196f3;
   color: #000000;
   border-radius: 50%;
 }
 
 .u-text--teal {
-  color: #a9a9a9;
+  color: #2196f3;
 }
 
 .u-bg--orange {
-  background-color: #cd7f32;
+  background-color: #f44336;
   border-radius: 50%;
 }
 
 .u-text--orange {
-  color: #cd7f32;
+  color: #f44336;
 }
 
 .bg-odd {
