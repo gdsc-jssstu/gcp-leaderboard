@@ -51,14 +51,18 @@ def data_scraping(url):
 
 
 def data_gathering(link):
+    # print(link)
     tempdic = {}
     response = requests.get(link)
     soup = BeautifulSoup(response.text, "html.parser")
     track1completed = []
     track2completed = []
     profile = soup.findAll("div", attrs={"class": "text--center"})[0]
-    dp = profile.findAll("ql-avatar")[0]["src"]
+    # print(profile)
+    # dp = profile.findAll("ql-avatar")[0]["src"]
+    dp = "abc"
     name = profile.h1.text
+    # print(name)
     tempdic["name"] = name.strip()
     tempdic["dp"] = dp
     quests = soup.findAll("div", attrs={"class": "profile-badge"})

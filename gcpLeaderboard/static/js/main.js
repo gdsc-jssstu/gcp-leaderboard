@@ -30,7 +30,6 @@ function getData() {
                         <div class="c-flag c-kudos">${i}</div>
                         <div class="c-flag c-place u-bg--transparent">${rank}</div>
                         <div class="c-media">
-                            <img class="c-avatar c-media__img" src="${member.dp}" />
                             <div class="c-media__content">
                                 <div class="c-media__title">${member.name}</div>
                                 <br>
@@ -50,7 +49,6 @@ function getData() {
                             <div class="c-flag c-kudos">${i}</div>
                             <div class="c-flag c-place u-bg--transparent">${rank}</div>
                             <div class="c-media">
-                                <img class="c-avatar c-media__img" src="${member.dp}" />
                                 <div class="c-media__content">
                                     <div class="c-media__title">${member.name}</div>
                                     <br>
@@ -70,7 +68,6 @@ function getData() {
                             <div class="c-flag c-kudos">${i}</div>
                             <div class="c-flag c-place u-bg--transparent">${rank}</div>
                             <div class="c-media">
-                                <img class="c-avatar c-media__img" src="${member.dp}" />
                                 <div class="c-media__content">
                                     <div class="c-media__title">${member.name}</div>
                                     <br>
