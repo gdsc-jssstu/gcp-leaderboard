@@ -7,9 +7,9 @@ function getData() {
     if (this.status == 200) {
       var data = JSON.parse(this.responseText);
       var rankset = new Set();
-      data.forEach((member)=>
-        {rankset.add(member.qcomplete_no);}
-      );
+      data.forEach((member) => {
+        rankset.add(member.qcomplete_no);
+      });
 
       const rankarray = [...rankset];
 
@@ -17,42 +17,47 @@ function getData() {
       data.forEach((member) => {
         let newRow = document.createElement("li");
 
-        member.track1.reverse();
-        member.track2.reverse();
+        member.lab.reverse();
+        member.quest.reverse();
+        member.course.reverse();
 
-        rank=rankarray.indexOf(member.qcomplete_no)+1;
+        rank = rankarray.indexOf(member.qcomplete_no) + 1;
 
         newRow.classList = "c-list__item";
 
-        if(member.track1.length==0){
         newRow.innerHTML = `
-                    <div class="c-list__grid">
-                        <div class="c-flag c-kudos">${i}</div>
-                        <div class="c-flag c-place u-bg--transparent">${rank}</div>
-                        <div class="c-media">
-                            <div class="c-media__content">
-                                <div class="c-media__title">${member.name}</div>
-                                <br>
-                                <a class="c-media__link "><b>Track 2:</b><ol><li> ${member.track2.join('</li><li>')}</li></ol></a>
-                            </div>
-                        </div>
-                        <div class="u-text--right c-kudos">
-                            <div class="u-mt--8">
-                                <strong>${member.qcomplete_no}</strong>
-                            </div>
-                        </div>
-                    </div>
-                `;
-          }else if(member.track2.length==0){
-            newRow.innerHTML = `
                         <div class="c-list__grid">
                             <div class="c-flag c-kudos">${i}</div>
                             <div class="c-flag c-place u-bg--transparent">${rank}</div>
                             <div class="c-media">
                                 <div class="c-media__content">
-                                    <div class="c-media__title">${member.name}</div>
-                                    <br>
-                                    <a class="c-media__link "><b>Track 1:</b><ol><li> ${member.track1.join('</li><li>')}</li></ol></a>
+                                    <div class="c-media__title">${
+                                      member.name
+                                    }</div>
+                                    
+                                    ${
+                                      member.lab.length > 0
+                                        ? `<br><a class="c-media__link "><b>Lab:</b><ol><li> ${member.lab.join(
+                                            "</li><li>"
+                                          )}</li></ol></a>`
+                                        : ""
+                                    }
+                                    
+                                    ${
+                                      member.quest.length > 0
+                                        ? `<br><br><a class="c-media__link "><b>Quest:</b><ol><li> ${member.quest.join(
+                                            "</li><li>"
+                                          )}</li></ol></a>`
+                                        : ""
+                                    }
+                                    
+                                    ${
+                                      member.course.length > 0
+                                        ? `<br><br><a class="c-media__link "><b>Course:</b><ol><li> ${member.course.join(
+                                            "</li><li>"
+                                          )}</li></ol></a>`
+                                        : ""
+                                    }
                                 </div>
                             </div>
                             <div class="u-text--right c-kudos">
@@ -62,29 +67,6 @@ function getData() {
                             </div>
                         </div>
                     `;
-          }else{
-            newRow.innerHTML = `
-                        <div class="c-list__grid">
-                            <div class="c-flag c-kudos">${i}</div>
-                            <div class="c-flag c-place u-bg--transparent">${rank}</div>
-                            <div class="c-media">
-                                <div class="c-media__content">
-                                    <div class="c-media__title">${member.name}</div>
-                                    <br>
-                                    <a class="c-media__link "><b>Track 1:</b><ol><li> ${member.track1.join('</li><li>')}</li></ol></a>
-                                    <br><br>
-                                    <a class="c-media__link "><b>Track 2:</b><ol><li> ${member.track2.join('</li><li>')}</li></ol></a>
-                                </div>
-                            </div>
-                            <div class="u-text--right c-kudos">
-                                <div class="u-mt--8">
-                                    <strong>${member.qcomplete_no}</strong>
-                                </div>
-                            </div>
-                        </div>
-                    `;
-
-          }
 
         if (rank === 1) {
           newRow.querySelector(".c-place").classList.add("u-text--dark");
@@ -100,9 +82,9 @@ function getData() {
           newRow.querySelector(".c-kudos").classList.add("u-text--orange");
         }
 
-        if (i%2 == 0){
+        if (i % 2 == 0) {
           newRow.classList.add("bg-even");
-        }else{
+        } else {
           newRow.classList.add("bg-odd");
         }
 
