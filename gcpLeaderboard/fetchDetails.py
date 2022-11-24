@@ -17,21 +17,24 @@ biglist = []
 url = []
 url2 = []
 
-track1 = [
+lab = [
+    "A Tour of Google Cloud Hands-on Labs",
+]
+course = [
+    "Preparing for Your Associate Cloud Engineer Journey",
+    "Google Cloud Fundamentals: Core Infrastructure",
+    "Essential Google Cloud Infrastructure: Foundation",
+    "Essential Google Cloud Infrastructure: Core Services",
+    "Elastic Google Cloud Infrastructure: Scaling and Automation",
+    "Getting Started with Google Kubernetes Engine",
+    "Logging, Monitoring and Observability in Google Cloud",
+    "Getting Started with Terraform for Google Cloud",
+]
+quest_list = [
     "Create and Manage Cloud Resources",
     "Perform Foundational Infrastructure Tasks in Google Cloud",
-    "Set up and Configure a Cloud Environment in Google Cloud",
-    "Deploy and Manage Cloud Environments with Google Cloud",
-    "Build and Secure Networks in Google Cloud",
-    "Deploy to Kubernetes in Google Cloud",
-]
-track2 = [
-    "Create and Manage Cloud Resources",
-    "Perform Foundational Data, ML, and AI Tasks in Google Cloud",
-    "Insights from Data with BigQuery",
-    "Engineer Data in Google Cloud",
-    "Integrate with Machine Learning APIs",
-    "Explore Machine Learning Models with Explainable AI",
+    "Set Up and Configure a Cloud Environment in Google Cloud",
+    "Automating Infrastructure on Google Cloud with Terraform",
 ]
 # get the url in list
 
@@ -55,8 +58,9 @@ def data_gathering(link):
     tempdic = {}
     response = requests.get(link)
     soup = BeautifulSoup(response.text, "html.parser")
-    track1completed = []
-    track2completed = []
+    labcompleted = []
+    coursecompleted = []
+    questcompleted = []
     profile = soup.findAll("div", attrs={"class": "text--center"})[0]
     # print(profile)
     # dp = profile.findAll("ql-avatar")[0]["src"]
@@ -70,13 +74,16 @@ def data_gathering(link):
         allquest = quest.findAll("span", attrs={"class": "ql-subhead-1"})[
             0
         ].text.strip()
-        if allquest in track1:
-            track1completed.append(allquest)
-        if allquest in track2:
-            track2completed.append(allquest)
-    tempdic["track1"] = track1completed
-    tempdic["track2"] = track2completed
-    tempdic["qcomplete_no"] = len(track1completed) + len(track2completed)
+        if allquest in lab:
+            labcompleted.append(allquest)
+        if allquest in course:
+            coursecompleted.append(allquest)
+        if allquest in quest_list:
+            questcompleted.append(allquest)
+    tempdic["lab"] = labcompleted
+    tempdic["course"] = coursecompleted
+    tempdic["quest"] = questcompleted
+    tempdic["qcomplete_no"] = len(labcompleted) + len(coursecompleted) + len(questcompleted)
     # print(tempdic)
 
     if tempdic["qcomplete_no"] != 0:
